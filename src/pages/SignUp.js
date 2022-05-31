@@ -3,9 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import axios from "axios";
-// import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -55,8 +52,6 @@ export default function SignUp() {
   const userRegister = useSelector((state) => state.userRegister);
   const { loading, error, userInfo } = userRegister;
 
-  // const redirect = location.search ? location.search.split("=")[1] : "/";
-
   React.useEffect(() => {
     if (userInfo) {
       navigate("/");
@@ -65,14 +60,6 @@ export default function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // const requestOptions = {
-    //   headers: { "Content-Type": "application/json" },
-    //   body: registerUser,
-    // };
-
-    // axios.post("http://localhost:8000/api/users", registerUser).then((res) => {
-    //   console.log(res);
-    // });
 
     dispatch(
       dispatch(
@@ -86,8 +73,6 @@ export default function SignUp() {
       )
     );
 
-    // console.log("res---------->>", response);
-    // console.log("register:==>", registerUser);
   };
 
   const handleChange = (e) => {
@@ -107,7 +92,6 @@ export default function SignUp() {
       setRegisterUser({ ...clone, phone_number: value });
     }
   };
-  // console.log("registerUser", registerUser);
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -216,7 +200,7 @@ export default function SignUp() {
             navigate("/");
           }}
         >
-          asdfasdf
+          HOME
         </Button>
       </Container>
     </ThemeProvider>
