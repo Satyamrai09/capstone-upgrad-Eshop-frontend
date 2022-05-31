@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import ToggleButtons from "../common/ToggleButton";
 import ProductDetailSlave from "../components/product-detail-slave/ProductDetailSlave";
 
-//product detail page
+// import Navbar from "../common/Navbar";
 const ProductDetail = () => {
   return (
     <>

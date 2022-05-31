@@ -1,9 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-// import AppBar from "@material-ui/core/AppBar";
-// import Toolbar from "@material-ui/core/Toolbar";
-// import Paper from "@material-ui/core/Paper";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Paper from "@material-ui/core/Paper";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -98,9 +98,18 @@ export default function Checkout() {
       <CssBaseline />
       <PrimarySearchAppBar></PrimarySearchAppBar>
       <br />
-      
+      {/* <AppBar position="absolute" color="default" className={classes.appBar}>
+        <Toolbar>
+          <Typography variant="h6" color="inherit" noWrap>
+            Company name
+          </Typography>
+        </Toolbar>
+      </AppBar> */}
       <main className={classes.layout}>
-       
+        {/* <Paper className={classes.paper}> */}
+        {/* <Typography component="h1" variant="h4" align="center">
+            Checkout
+          </Typography> */}
 
         <Stepper activeStep={activeStep} className={classes.stepper}>
           {steps.map((label) => (
@@ -145,7 +154,7 @@ export default function Checkout() {
             </>
           )}
         </>
-       
+        {/* </Paper> */}
         <br />
         <br />
         <Copyright />
