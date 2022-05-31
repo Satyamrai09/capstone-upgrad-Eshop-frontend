@@ -3,7 +3,7 @@ import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 
 import React from "react";
 
-export default function ToggleButtons() {
+export default function ToggleButtons({ setProductCategory }) {
   const [alignment, setAlignment] = React.useState("left");
 
   const handleAlignment = (event, newAlignment) => {
@@ -17,19 +17,49 @@ export default function ToggleButtons() {
       onChange={handleAlignment}
       aria-label="text alignment"
     >
-      <ToggleButton value="left" aria-label="left aligned">
+      <ToggleButton
+        onClick={() => {
+          setProductCategory("All");
+        }}
+        value="left"
+        aria-label="left aligned"
+      >
         ALL
       </ToggleButton>
-      <ToggleButton value="left" aria-label="left aligned">
+      <ToggleButton
+        onClick={() => {
+          setProductCategory("Apparel");
+        }}
+        value="left"
+        aria-label="left aligned"
+      >
         APPAREL
       </ToggleButton>
-      <ToggleButton value="left" aria-label="left aligned">
+      <ToggleButton
+        onClick={() => {
+          setProductCategory("Electronics");
+        }}
+        value="left"
+        aria-label="left aligned"
+      >
         ELECTRONICS
       </ToggleButton>
-      <ToggleButton value="left" aria-label="left aligned">
+      <ToggleButton
+        onClick={() => {
+          setProductCategory("Footwear");
+        }}
+        value="left"
+        aria-label="left aligned"
+      >
         FOOTWEAR
       </ToggleButton>
-      <ToggleButton value="left" aria-label="left aligned">
+      <ToggleButton
+        onClick={() => {
+          setProductCategory("PersonalCare");
+        }}
+        value="left"
+        aria-label="left aligned"
+      >
         PERSONAL CARE
       </ToggleButton>
     </ToggleButtonGroup>

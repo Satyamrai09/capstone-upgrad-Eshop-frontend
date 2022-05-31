@@ -1,22 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { alpha, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
-import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Grid } from "@material-ui/core";
 import CommonButton from "../common/CommonButton";
+import { useNavigate } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -81,13 +74,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({ setSearchField }) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const navigate = useNavigate();
+  const [logButton, setLogButton] = useState("LOGIN");
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const log_button = "LOGIN";
+  const log_button_text = "LOGIN";
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -105,20 +103,15 @@ export default function PrimarySearchAppBar() {
 
   const mobileMenuId = "primary-search-account-menu-mobile";
 
+  const handleChange = (e) => {
+    setSearchField(e.target.value)  ;
+  };
   return (
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <Grid container spacing={1}>
+          <Grid container spacing={0}>
             <Grid item xs={4}>
-              {/* <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton> */}
               <Typography className={classes.title} variant="h6" noWrap>
                 <ShoppingCartIcon />
                 upGrad E-Shop
@@ -130,6 +123,7 @@ export default function PrimarySearchAppBar() {
                   <SearchIcon />
                 </div>
                 <InputBase
+                  onChange={handleChange}
                   placeholder="Search…"
                   classes={{
                     root: classes.inputRoot,
@@ -150,10 +144,14 @@ export default function PrimarySearchAppBar() {
                     </Grid>
                     <Grid item xs={6}>
                       <CommonButton
+                        onClick={() => {
+                          console.log("login clicked");
+                          navigate("/login");
+                        }}
                         variant="contained"
                         color="secondary"
-                        button_name="LOGOUT"
-                        text="LOGOUT"
+                        button_name={log_button}
+                        text={log_button_text}
                       />
                     </Grid>
                   </Grid>
